@@ -164,8 +164,8 @@ function uppdateLocalStorage() {
 function setEventToUppdate(index) {
   btnAdd.classList.add("hidden");
   btnUppdate.classList.replace("hidden", "visible");
-  eventName.value = eventsList[index].name;
-  eventOrganizer.value = eventsList[index].organiser;
+  eventName.value = eventsList[index].eventName;
+  eventOrganizer.value = eventsList[index].eventOrganizer;
   eventDate.value = eventsList[index].eventDate;
   indexEvent = index;
 }
@@ -173,8 +173,8 @@ function setEventToUppdate(index) {
 btnUppdate.addEventListener("click", function () {
   const eventTimeLeft = new Date(eventDate.value).getTime();
   let event = {
-    name: eventName.value,
-    organiser: eventOrganizer.value,
+    eventName: eventName.value,
+    eventOrganizer: eventOrganizer.value,
     eventDate: eventDate.value,
     timeLeft: eventTimeLeft,
   };
@@ -182,7 +182,9 @@ btnUppdate.addEventListener("click", function () {
   uppdateLocalStorage();
   clearForm();
   displayEvents();
-  console.log(`new event ${event}`);
+  btnAdd.classList.remove("hidden");
+  btnUppdate.classList.replace("visible", "hidden");
+  // console.log(`new event ${event}`);
 });
 /*================================ Search Event Function ==================================== */
 // searchValue.addEventListener("input", function () {
