@@ -1,0 +1,15 @@
+@import "tailwindcss/base";
+
+@import "tailwindcss/components";
+
+@import "tailwindcss/utilities";
+
+
+@layer components {
+    .input-style {
+        @apply w-full py-2 px-3 rounded-lg focus:outline-none mb-2
+    }
+    .btn-style {
+        @apply block rounded-lg p-1 w-full text-white uppercase duration-300
+    }
+}

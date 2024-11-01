@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/output.css" />
+    <title>event manager</title>
+  </head>
+  <body class="bg-[#5a4e4eb7]">
+    <section>
+      <div class="container py-5">
+        <h1
+          class="text-center text-5xl text-[#252222] font-bold my-10 uppercase"
+        >
+          event manager
+        </h1>
+        <form
+          action=""
+          id="form"
+          class="mx-auto lg:w-1/2 p-3 shadow-2xl shadow-slate-900 rounded-lg mb-5"
+        >
+          <input
+            type="text"
+            class="input-style"
+            placeholder="Event Name"
+            id="eventName"
+          />
+          <div class="py-2 px-3 rounded-lg mb-2 bg-red-200 w-3/4 hidden">
+            <p>name required</p>
+            <p>name should contains more than 3 characters</p>
+          </div>
+          <input
+            type="text"
+            class="input-style"
+            placeholder="Organizer"
+            id="eventOrganizer"
+          />
+          <div class="py-2 px-3 rounded-lg mb-2 bg-red-200 w-3/4 hidden">
+            <p>organizer name required</p>
+          </div>
+          <input type="date" class="input-style" name="date" id="eventDate" />
+          <div class="py-2 px-3 rounded-lg mb-2 bg-red-200 w-3/4 hidden">
+            <p>Date is required</p>
+          </div>
+          <div class="py-2 px-3 rounded-lg mb-2 bg-red-200 w-3/4 hidden" id="allValidations">
+            <p>All info are required</p>
+          </div>
+          <button
+            class="w-full bg-lime-500 p-2 rounded-lg text-white font-semibold capitalize duration-300 hover:bg-lime-600 mb-2"
+            id="btnAdd"
+          >
+            add event
+          </button>
+          <button
+            class="hidden w-full bg-orange-500 p-2 rounded-lg text-white font-semibold capitalize duration-300 hover:bg-orange-600"
+            id="btnUppdate"
+          >
+            uppdate event
+          </button>
+        </form>
+        <!-- <input type="search" class="input-style" placeholder="type to search event" id="searchValue"> -->
+        <div
+          class="grid md:grid-cols-2 lg:grid-cols-4 gap-4"
+          id="eventCard"
+        ></div>
+      </div>
+    </section>
+
+    <script src="./js/index.js"></script>
+  </body>
+</html>
