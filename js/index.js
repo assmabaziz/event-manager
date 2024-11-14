@@ -8,7 +8,7 @@ const btnAdd = document.getElementById("btnAdd");
 const btnUppdate = document.getElementById("btnUppdate");
 const inputs = document.querySelectorAll("input");
 const allValidations = document.getElementById("allValidations");
-// const searchValue = document.getElementById("searchValue");
+const eventDescription = document.getElementById("eventDescription");
 let indexEvent = 0;
 let regex = {};
 let eventsList = JSON.parse(localStorage.getItem("events")) || [];
@@ -39,6 +39,7 @@ btnAdd.addEventListener("click", () => {
       eventOrganizer: eventOrganizer.value,
       eventDate: eventDate.value,
       timeLeft: eventTimeLeft,
+      eventDescription: eventDescription.value,
     };
     eventsList.push(event);
     allValidations.classList.add("hidden");
@@ -53,6 +54,7 @@ btnAdd.addEventListener("click", () => {
 function clearForm() {
   inputs.forEach((input) => {
     input.value = "";
+    eventDescription.value = "";
   });
 }
 /*================================ Display Events Function ==================================== */
@@ -83,6 +85,10 @@ function displayEvents() {
             <span>date:</span>
             <span>${eventsList[i].eventDate}</span>
         </div>
+        <div class="flex justify-between items-center capitalize font-semibold text-[18px] border-b-[1px] border-black py-3">
+            <span>description:</span>
+            <span>${eventsList[i].eventDescription}</span>
+        </div>
         <div class="flex justify-between items-center capitalize font-semibold text-[18px] py-3">
             <span>time left:</span>
             <span>${countdown}</span>
@@ -108,6 +114,10 @@ function displayEvents() {
             <span>date:</span>
             <span>${eventsList[i].eventDate}</span>
         </div>
+         <div class="flex justify-between items-center capitalize font-semibold text-[18px] border-b-[1px] border-black py-3">
+            <span>description:</span>
+            <span>${eventsList[i].eventDescription}</span>
+        </div>
         <div class="flex justify-between items-center capitalize font-semibold text-[18px] py-3">
             <span>time left:</span>
             <span>${countdown}</span>
@@ -132,6 +142,10 @@ function displayEvents() {
         <div class="flex justify-between items-center capitalize font-semibold text-[18px] border-b-[1px] border-black  py-3 ">
             <span>date:</span>
             <span>${eventsList[i].eventDate}</span>
+        </div>
+         <div class="flex justify-between items-center capitalize font-semibold text-[18px] border-b-[1px] border-black py-3">
+            <span>description:</span>
+            <span>${eventsList[i].eventDescription}</span>
         </div>
         <div class="flex justify-between items-center capitalize font-semibold text-[18px] py-3">
             <span>time left:</span>
@@ -177,6 +191,7 @@ btnUppdate.addEventListener("click", function () {
     eventOrganizer: eventOrganizer.value,
     eventDate: eventDate.value,
     timeLeft: eventTimeLeft,
+    eventDescription: eventDescription.value,
   };
   eventsList.splice(indexEvent, 1, event);
   uppdateLocalStorage();
@@ -251,3 +266,7 @@ for (const input of inputs) {
     }
   });
 }
+
+// eventDescription.addEventListener("input", function() {
+//   console.log(eventDescription.value);
+// })
